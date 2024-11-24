@@ -1,5 +1,5 @@
 import { User } from '@prisma/client';
-import { JwtService } from 'src/auth/jwt.service';
+import { JwtService } from 'src/auth/jwt/jwt.service';
 
 export function generateAuthData(user: User, jwtService: JwtService) {
   const token = jwtService.generateToken(user.id);

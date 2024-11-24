@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { BlogStatus } from './blog-status.enum';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { GetAllBlogsDto } from './dto/get-all-blogs.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/shared/database/prisma.service';
 import { Blog, Prisma, Status } from '@prisma/client';
 import { UpdateBlogDto } from './dto/update-blog.dto';
 import { AuthUser } from 'src/auth/auth-user.model';

@@ -1,17 +1,19 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from 'src/shared/database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { compareHash, generateHash } from 'src/common/utils/hash.util';
 import { SignInDto } from './dto/sign-in.dto';
-import { JwtService } from './jwt.service';
+import { JwtService } from './jwt/jwt.service';
 import { AuthUser } from './auth-user.model';
 import { generateAuthData } from 'src/common/utils/auth-user.util';
+import { LoggerService } from 'src/shared/logger/logger.service';
 
 @Injectable()
 export class AuthService {
   constructor(
     private prisma: PrismaService,
     private jwtService: JwtService,
+    private loggerService: LoggerService,
   ) {}
 
   async signUp(
